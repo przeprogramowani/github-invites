@@ -19,7 +19,7 @@ Preserve these invariants unless the user explicitly changes the product behavio
 5. `--dry-run` must not send PATCH requests.
 6. Individual acceptance failures are report rows and do not stop later invitations from being attempted.
 7. Missing or rejected credentials are the authentication failure boundary. Do not print the token or request headers.
-8. Keep the workflow's repository permission at `contents: read` and use the separate `GITHUB_INVITES_TOKEN` Actions secret.
+8. Keep the workflow's repository permission at `contents: read` and use the separate `INVITES_TOKEN` Actions secret.
 
 ## Source of truth
 
@@ -31,7 +31,7 @@ Preserve these invariants unless the user explicitly changes the product behavio
 - `test/` is the regression safety net. Prefer testing the use case with a fake gateway and the adapter with a fake `fetch` implementation.
 - `README.md` is the user-facing setup and operations guide.
 
-Do not copy application-specific assumptions from the original `10xForge` implementation into this standalone project, such as a maintainer name or a hard-coded secret name. The reusable secret is `GITHUB_INVITES_TOKEN`; the script receives it through the conventional `GITHUB_TOKEN` environment variable.
+Do not copy application-specific assumptions from the original `10xForge` implementation into this standalone project, such as a maintainer name or a hard-coded secret name. The reusable secret is `INVITES_TOKEN`; the script receives it through the conventional `GITHUB_TOKEN` environment variable.
 
 ## Safe change workflow
 
