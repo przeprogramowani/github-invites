@@ -22,8 +22,10 @@ Older expired invitations are omitted from the report. The three-month window is
 2. Create a token for that same account.
 3. In the fork, open **Settings → Secrets and variables → Actions** and create a repository secret named `INVITES_TOKEN`.
 4. Paste the token into that secret. Do not put it in a committed file, an issue, a pull request, or a workflow command.
-5. Open **Actions**, enable workflows if GitHub asks, and run **Accept repository invites** manually with **List invites without accepting** checked.
-6. After confirming the dry-run report, run it again with the checkbox clear. Future scheduled runs happen every two days at 06:00 UTC.
+5. Open **Actions** and enable GitHub Actions for the fork if GitHub asks. Forked repositories have scheduled workflows blocked by default.
+6. In the workflow list, open **Accept repository invites** and click **Enable workflow**. Enabling Actions alone is not enough; this workflow must also be enabled.
+7. Run **Accept repository invites** manually with **List invites without accepting** checked.
+8. After confirming the dry-run report, run it again with the checkbox clear. Future scheduled runs happen every two days at 06:00 UTC.
 
 The workflow's built-in `GITHUB_TOKEN` is not sufficient: it represents the fork repository, not the user account whose invitations are being accepted. The workflow passes your `INVITES_TOKEN` secret to the script as `GITHUB_TOKEN`.
 
